@@ -1,0 +1,30 @@
+{
+  "namespace": "org.example",
+  "type" : "record",
+  "name": "KafkaMessage",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": "Message UID"
+    },
+    {
+      "name":"status",
+      "type":{
+        "type":"enum",
+        "name":"Status",
+        "symbols":[
+          "YES",
+          "NO"
+        ]
+      },
+     "default":"NO",
+      "doc": "Matadata of message"
+    },
+    {
+      "name": "payload",
+      "type": "string",
+      "doc": "Payload of message"
+    }
+  ]
+}
