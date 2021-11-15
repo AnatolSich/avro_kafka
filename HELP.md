@@ -14,6 +14,7 @@ into the message so a client can understand which schema to use.
 
 
 # Guides
-1. Start Kafka with docker compose
-2. Run Consumer
-3. Run Producer
+1. Generate Avro with mvn clean compile
+2. Start Kafka with docker compose
+3. Run Consumer
+4. Run Producer

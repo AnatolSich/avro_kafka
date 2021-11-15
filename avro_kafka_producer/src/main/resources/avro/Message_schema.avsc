@@ -1,5 +1,5 @@
 {
-  "namespace": "org.example",
+  "namespace": "org.example.model",
   "type" : "record",
   "name": "KafkaMessage",
   "fields": [
@@ -19,12 +19,54 @@
         ]
       },
      "default":"NO",
-      "doc": "Matadata of message"
+     "doc": "Matadata of message"
     },
     {
       "name": "payload",
       "type": "string",
       "doc": "Payload of message"
-    }
+    },
+    {
+      "name": "headers",
+      "type":{
+        "type": "array",
+        "items":{
+          "type":"map",
+          "values":"string"
+                }
+      },
+      "default":[{"Connection": "keep-alive"}, {"Content-Type": "text/plain"}],
+      "doc": "Headers of message (arrayOfMaps)"
+    },
+    {
+      "name":"connectNames",
+      "type":{
+        "type":"array",
+        "items":"string"
+      },
+      "default":["RPC", "SOAP"],
+      "doc": "Connections for message (arrayOfStrings)"
+    },
+    {
+     "name":"schemaIdentifier",
+     "type":{
+       "type":"record",
+       "name":"SchemaIdentifier",
+       "fields":[
+         {
+           "name":"fileName",
+           "type":"string",
+           "default":"Message_schema.avsc"
+         },
+         {
+           "name":"avroVersion",
+           "type":"int",
+           "default":11
+         }
+       ]
+     },
+     "default":{"fileName":"Message_schema.avsc", "avroVersion":11},
+     "doc": "SchemaIdentifier for message (object)"
+   }
   ]
 }

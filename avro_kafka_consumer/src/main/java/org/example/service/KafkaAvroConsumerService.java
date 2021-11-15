@@ -1,7 +1,7 @@
 package org.example.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.KafkaMessage;
+import org.example.model.KafkaMessage;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
